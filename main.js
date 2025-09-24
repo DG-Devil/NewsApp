@@ -1,4 +1,4 @@
-const backendURL = "/api/news"; // Relative path to Vercel serverless function
+const backendURL = "/api/news"; // Node.js serverless path
 
 async function searchNews() {
     const query = document.getElementById("query").value;

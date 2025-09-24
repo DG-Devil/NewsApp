@@ -20,11 +20,18 @@ async function searchNews() {
         data.articles.forEach(article => {
             const card = document.createElement("div");
             card.className = "card";
+
+            // Use article image or fallback image
+            const imageUrl = article.urlToImage || "https://via.placeholder.com/180x120?text=No+Image";
+
             card.innerHTML = `
-                <h3>${article.title}</h3>
-                <p>${article.description || ""}</p>
-                <small>${article.source.name} - ${new Date(article.publishedAt).toLocaleString()}</small><br>
-                <a href="${article.url}" target="_blank">Read More</a>
+                <img src="${imageUrl}" alt="News Image">
+                <div class="card-content">
+                    <h3>${article.title}</h3>
+                    <p>${article.description || ""}</p>
+                    <small>${article.source.name} - ${new Date(article.publishedAt).toLocaleString()}</small><br>
+                    <a href="${article.url}" target="_blank">Read More</a>
+                </div>
             `;
             container.appendChild(card);
         });

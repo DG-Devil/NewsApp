@@ -1,7 +1,7 @@
-const backendURL = "/api/news"; // Node.js serverless path
+const backendURL = "/api/news";
 
 async function searchNews() {
-    const query = document.getElementById("query").value;
+    const query = document.getElementById("query").value.trim();
     if (!query) return alert("Please enter a topic");
 
     const container = document.getElementById("results");
